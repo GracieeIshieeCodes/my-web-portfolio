@@ -1,0 +1,971 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap');
+
+:root {
+    --background-color: #FAF7F0;
+    --color-blue: #0F67B1;
+    --font-family-primary: 'Open Sans', serif;
+    --font-family-secondary: 'Libre Baskerville', serif;
+    --font-family-tertiary: 'Viaoda Libre', serif;
+}
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+    scroll-padding-top: 100px; /* Adjust based on the height of your fixed header */
+}
+
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+header {
+    padding: 15px;
+    border-bottom: 2px solid var(--color-blue);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-blue);
+    font-family: var(--font-family-secondary);
+}
+
+.font-1 {
+    font-family: var(--font-family-secondary);
+    font-style: italic;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: var(--font-family-primary);
+    font-size: 12px;
+}
+
+.nav-links li {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--color-blue);
+    font-size: 1rem;
+    padding: 8px 20px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-blue);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-blue);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.intro {
+    text-align: center;
+    padding: 100px 20px;
+    margin-top: 2%;
+    padding-bottom: 70px;
+    border-bottom: 2px solid var(--color-blue);
+    opacity: 1;
+    transform: none;
+}
+header, .intro {
+    animation: fadeInIntro 1.5s ease-out forwards;
+}
+
+@keyframes fadeInIntro {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.greeting {
+    font-size: 1.7rem;
+    color: var(--color-white);
+    font-family: var(--font-family-tertiary);
+    color: var(--color-blue);
+}
+
+.description {
+    font-size: 3.4rem;
+    margin-top: 10px;
+    color: var(--color-white);
+    font-family: var(--font-family-secondary);
+    color: var(--color-blue);
+}
+
+.buttons {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 30px;
+    border: 2px solid var(--color-blue);
+    color: var(--color-blue);
+    transition: background-color 0.3s ease; /* Keep only background-color transition */
+    font-family: var(--font-family-primary);
+    width: 140px;
+    text-align: center;
+}
+
+.buttons a:hover {
+    background-color: var(--color-blue);
+    color: var(--background-color);
+    /* Removed transform and box-shadow for no animation effect */
+}
+.about {
+    position: relative;
+    padding: 20px 20px; /* Padding for top/bottom and left/right */
+    color: var(--color-blue); /* Text color */
+    overflow: hidden; /* Ensure child elements don't overflow */
+    padding-bottom: 2%;
+    border-bottom: 2px solid var(--color-blue);
+}
+.about-me{
+    font-family: var(--font-family-secondary);
+    font-size: 2rem;
+}
+.desc {
+    margin-top: 20px !important; /* Add margin with !important to ensure it overrides other styles */
+    margin-bottom: 20px !important;
+    font-family: var(--font-family-secondary);
+}
+
+.about-info::before {
+    content: 'About'; /* Background text */
+    position: absolute; 
+    top:20px; /* Adjust this value to position it directly below the heading */
+    left: 44%; /* Align to the left */
+    font-size: 5rem; /* Smaller size for the background text */
+    color: rgba(0, 0, 0, 0.1); /* Light black with opacity */
+    font-weight: bold;
+    z-index: 0; /* Place it behind other elements */
+    font-family: var(--font-family-tertiary);
+}
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px; /* Space between the image and info */
+    max-width: 900px; /* Set a max-width for the content */
+    margin: 0 auto; /* Center the content horizontally */
+    padding-left: 20px;  /* Extra padding to center properly */
+    padding-right: 20px; /* Extra padding to center properly */
+}
+
+.about-image img {
+    width: 300px; /* Increase the image size */
+    height: 410px; /* Maintain square dimensions */
+    object-fit: cover; /* Ensure the image covers the square */
+    margin-top: 3%;
+    border: 5px solid var(--color-blue); /* Add a 5px solid border with your color */
+    border-radius: 4px; /* Optionally, add rounded corners */
+}
+
+
+.about-info {
+    flex-grow: 1;
+    margin-left: 30px; /* Extra space between image and info */
+    margin-top: 2%;
+}
+
+.about-info dl {
+    margin: 0;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Space between rows */
+    font-family: var(--font-family-secondary);
+    text-wrap: nowrap;
+}
+
+.info-row dt {
+    font-weight: bold;
+    min-width: 150px; /* Width for the labels */
+}
+
+.info-row dd {
+    margin: 0;
+    padding-left: 10px; /* Add space between label and value */
+    flex-grow: 1;
+}
+
+.download-cv {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: 2px solid var(--color-blue);
+    border-radius: 30px;
+    background-color: var(--color-blue); /* Remove default button background */
+    color: var(--background-color);
+    text-decoration: none;
+    cursor: pointer; /* Make it look clickable */
+    transition: background-color 0.3s ease;
+    font-family: inherit; /* Keep the font consistent */
+    font-size: inherit; /* Keep the font size consistent */
+    outline: none; /* Remove the outline */
+    font-family: var(--font-family-primary);
+}
+
+.download-cv:hover {
+    background-color: transparent;
+    color: var(--color-blue);
+    border: 2px solid var(--color-blue);
+    border-radius: 30px;
+}
+/* For the timeline */
+.timeline {
+    position: relative;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px; /* Position of the vertical line */
+    width: 4px; /* Thickness of the vertical line */
+    height: 100%;
+    background-color: var(--color-blue); /* Color of the vertical line */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 40px; /* Space between dot and content */
+    font-family: var(--font-family-secondary);
+    font-size: 15px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.dot {
+    position: absolute;
+    left: -4px; /* Position of the dot */
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-blue); /* Color of the dot */
+    border-radius: 50%; /* Makes the dot round */
+}
+
+.timeline-content p {
+    margin: 0;
+}
+
+
+.education-skills {
+    display: flex;
+    justify-content: space-between; /* Space between the two sections */
+    margin-top: 30px;
+    gap: 50px; /* Space between education and skills */
+    padding: 0 5%; /* Add padding */
+    padding-bottom: 2%;
+    border-bottom: 2px solid var(--color-blue);
+}
+
+.education-section, .skills-section {
+    width: 48%; /* Each section takes up almost half the width */
+}
+
+.education-section h2, .skills-section h2 {
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+    color: var(--color-blue);
+    font-family: var(--font-family-secondary);
+
+}
+.section-line {
+    width: 60%; /* Full width of the section */
+    height: 2px; /* Thickness of the line */
+    background-color: var(--color-blue); /* Match the color with your theme */
+    margin-top: -3%; /* Space above the line */
+    margin-bottom: 20px; /* Space below the line */
+    position: relative; /* Necessary for positioning pseudo-elements */
+}
+
+.section-line::before,
+.section-line::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Center vertically */
+    width: 10px; /* Circle diameter */
+    height: 10px; /* Circle diameter */
+    background-color: var(--color-blue); /* Match the color of the line */
+    border-radius: 50%; /* Make the pseudo-elements circular */
+    transform: translateY(-50%); /* Center the circles vertically */
+}
+
+.section-line::before {
+    left: -5px; /* Adjust to position the circle close to the left end */
+}
+
+.section-line::after {
+    right: -5px; /* Adjust to position the circle close to the right end */
+}
+
+.education-item {
+    margin-bottom: 30px; /* Space between each education entry */
+}
+
+.education-info {
+    display: flex;
+    justify-content: space-between; /* Aligns the school name and date */
+    align-items: center; /* Aligns items vertically centered */
+}
+
+.education-info h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    flex-grow: 1; /* Ensures the school name expands to fill available space */
+}
+
+.education-date {
+    font-size: 1rem;
+    color: var(--color-gray);
+    margin-left: 60px; /* Adjust this value for spacing between school name and date */
+    white-space: nowrap; /* Prevent date from wrapping */
+}
+.school{
+    color: var(--color-blue);
+    font-weight: bold;
+}
+.education-item p {
+    font-size: 1rem;
+    margin: 0;
+    margin-top: 5px; /* Spacing below the school name and date */
+}
+.skills-section {
+    margin-top: -0.8%;
+    font-family: var(--font-family-secondary);
+}
+
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.skill-item span {
+    display: block;
+    margin-bottom: 5px; /* Skill name on top of progress bar */
+    font-size: 1rem;
+}
+
+.progress-bar-container {
+    position: relative; /* Allow absolute positioning of percentage */
+    width: 100%; /* Ensure full width for progress bar */
+    margin-top: 5px;
+}
+
+.progress-bar {
+    background-color: #e0e0e0; /* Light gray background */
+    border-radius: 10px;
+    height: 20px;
+    width: 100%;
+}
+
+.progress {
+    background-color: var(--color-blue); /* Progress bar color */
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+}
+
+.percentage {
+    position: absolute;
+    top: -25px; /* Move the percentage above the progress bar */
+    transform: translateX(-50%); /* Center percentage at the tip of the bar */
+    font-size: 0.9rem;
+    color: #333; /* Percentage text color */
+    font-weight: bold; /* Make percentage stand out */
+}
+.languages-section {
+    margin-top: 30px; /* Space above the Languages section */
+}
+
+.languages-section h2 {
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+    color: var(--color-blue);
+    font-family: var(--font-family-secondary);
+}
+
+.language-item {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    gap: 10px; /* Adjust spacing between language name and level */
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+
+.language-name {
+    font-weight: bold;
+    color: var(--color-blue);
+    font-family: var(--font-family-secondary);
+}
+
+.language-level {
+    color: var(--color-gray); /* Color for language level */
+    font-family: var(--font-family-secondary);
+}
+
+.certifications {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%; /* Full width of the container */
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    border-bottom: 2px solid var(--color-blue);
+    padding: 0 50px; /* Add padding to left and right */
+}
+
+
+.certifications .h-line {
+    position: relative;
+    width: 60%; /* Full width of the section */
+    height: 2px; /* Line thickness */
+    background-color: var(--color-blue); /* Line color */
+    margin: 10px 0; /* Space above and below */
+}
+
+.certificates,
+.certifications-list {
+    padding: 20px;
+}
+
+.certificates h2,
+.certifications-list h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--color-blue);
+    font-family: var(--font-family-secondary);
+}
+
+.certificate-grid,
+.certification-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row to make images larger */
+    gap: 15px; /* Adjust the gap if needed */
+    margin-top: 2%;
+}
+
+
+.certificate-item,
+.certification-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.certificate-item img,
+.certification-item img {
+    max-width: 100%; /* Ensure the image takes the full width of its container */
+    max-height: 250px; /* Increase the height to make images bigger */
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    border: 2px solid var(--color-blue);
+}
+
+.certificate-item img:hover,
+.certification-item img:hover {
+    transform: scale(1.05); /* Scale up the image on hover */
+    cursor: pointer;
+    
+}
+
+.h-line {
+    position: relative;
+    width: 65%; /* Full width of the section */
+    height: 2px; /* Line thickness */
+    background-color:var( --color-blue); /* Line color */
+    margin: 10px 0; /* Space above and below */
+    margin-top: -2%;
+}
+
+.h-line::before,
+.h-line::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Center vertically */
+    width: 10px; /* Circle diameter */
+    height: 10px; /* Circle diameter */
+    background-color:var( --color-blue); /* Line color */
+    border-radius: 50%; /* Make it a circle */
+    transform: translateY(-50%); /* Center the circle vertically */
+}
+
+.h-line::before {
+    left: -5px; /* Closer to the line on the left */
+}
+
+.h-line::after {
+    right: -5px; /* Closer to the line on the right */
+}
+
+
+@media (max-width: 768px) {
+    .certifications {
+        grid-template-columns: 1fr; /* Stacked columns on smaller screens */
+    }
+
+    .certificate-grid,
+    .certification-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
+    }
+}
+ /* Modal Styles */
+ .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    font-family: var(--font-family-primary);
+    color: var(--color-blue);
+    font-weight: bold;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 4%;
+}
+
+.modal-content img {
+    max-width: 100%;
+    border-radius: 10px;
+    border: 3px solid var(--color-blue);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -2%;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.projects {
+    position: relative;
+    padding: 20px;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    color: var(--color-blue);
+    font-family: var(--font-family-secondary);
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-weight: bold;
+
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.projects-grid {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.project-item {
+    width: 300px;
+    flex-shrink: 0;
+    border: 2px solid var(--color-blue);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    background-color: #f4f4f4;
+}
+a {
+    text-decoration: none;
+}
+
+.project-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: top center;
+    border-bottom: 1px solid var(--color-blue);
+}
+
+.project-info {
+    padding: 15px;
+    background-color: #fff;
+    font-family: var(--font-family-primary);
+}
+
+.project-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-blue);
+    font-family: var(--font-family-primary);
+}
+
+
+.project-info p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(15, 103, 177, 0.5); /* 50% opacity */
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 30%;
+}
+/* Adjust position for each button */
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
+
+/* Add hover effect to arrows */
+.prev-button:hover, .next-button:hover {
+    background-color: rgba(250, 247, 240, 0.8);
+    color: var(--color-blue);
+}
+
+/* Add smoother scrolling effect */
+.projects-grid {
+    scroll-behavior: smooth;
+}
+
+/* Adjustments for larger screens (if needed) */
+@media (min-width: 768px) {
+    .project-item {
+        width: 350px;
+    }
+}
+
+footer {
+    border-top: 2px solid var(--color-blue); /* Border at the top */
+    padding: 20px 0;
+    background-color: #FAF7F0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.footer-left {
+    font-family: var(--font-family-primary);
+    font-size: 1.2rem;
+    color: var(--color-blue);
+}
+
+.footer-right {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    overflow: hidden; /* Ensures the icon is centered */
+}
+
+.social-link {
+    color: white;
+    font-size: 20px; /* Adjust icon size to fit better */
+    line-height: 1; /* Ensures icon is vertically centered */
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background-color: #0d4e8c; /* Change to a darker blue on hover */
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+.social-link:hover {
+    color: #FAF7F0; /* Change to a light color when hovered */
+}
+.footer-left a {
+    color: var(--color-blue); /* Changes font color to blue */
+    text-decoration: none; /* Removes any underline on the link */
+}
+
+.footer-left .font-1,
+.footer-left .font-2 {
+    font-weight: bold; /* Makes both "Reylene" and "GRACE" bold */
+}
+
+.footer-left .font-2 {
+    font-family: var(--font-family-tertiary); /* Applies tertiary font to "GRACE" */
+}
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    .nav-links li {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10px; /* Add spacing between links */
+    }
+
+    .logo a {
+        font-size: 1.2rem; /* Adjust font size for the logo */
+    }
+
+    .nav-links a {
+        padding: 8px 15px; /* Adjust padding for smaller screens */
+        font-size: 0.9rem; /* Adjust font size for links */
+    }
+    .greeting {
+        font-size: 1.2rem; /* Smaller font size for small screens */
+    }
+
+    .description {
+        font-size: 1.4rem; /* Smaller font size for small screens */
+        line-height: 1.4; /* Reduce line height for better readability */
+    }
+
+    .buttons a {
+        font-size: 0.7rem; /* Smaller font size for buttons */
+        padding: 8px 8px; /* Adjust button padding */
+    }
+    .about-container {
+        display: block; /* Stack the content vertically */
+        align-items: center; /* Center align everything */
+        text-align: center; /* Center the text */
+    }
+
+    .about-image img {
+        width: 200px; /* Resize image to fit smaller screens */
+        height: 200px; /* Make it square */
+        object-fit: cover; /* Maintain image aspect ratio */
+        margin-bottom: 20px; /* Space between image and content */
+    }
+
+    .about-info {
+        margin-left: 0; /* Reset margin */
+        margin-top: 20px; /* Space between the image and text */
+    }
+    .about-info::before {
+        top: 30%; /* Adjust this value to position it directly below the heading */
+        left: 30%; /* Align to the left */
+    }
+    .about-info h1 {
+        font-size: 1.8rem; /* Adjust heading size */
+    }
+
+    .desc {
+        font-size: 1rem; /* Adjust description font size */
+        margin-top: 10px; /* Add margin for spacing */
+    }
+
+    .info-row {
+        display: flex; /* Use flexbox to place labels and values on the same line */
+        align-items: baseline; /* Align text vertically */
+        margin-bottom: 10px; /* Space between each info row */
+        text-align: left; /* Ensure left-aligned text */
+    }
+    
+    .info-row dt {
+        font-weight: bold;
+        margin-right: 10px; /* Space between label and value */
+        white-space: nowrap; /* Prevent line breaks */
+        text-align: left; /* Ensure the label is aligned to the left */
+    }
+    
+    .info-row dd {
+        margin: 0; /* Remove default margin */
+        flex-grow: 1; /* Allow the description (dd) to take up available space */
+        text-align: left; /* Ensure the description is aligned to the left */
+    }
+    
+
+    .download-cv {
+        width: 100%; /* Make the button take full width */
+        padding: 12px 20px; /* Adjust padding for the button */
+    }
+    .education-skills {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .education-section, .skills-section {
+        width: 100%;
+    }
+    .skills-section{
+        margin-top: -4%;
+    }
+    .timeline-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px; /* Add space between school name and date */
+    }
+    
+    .timeline-content p, .language-item span {
+        font-size: 15px;
+    }
+    
+    .education-date {
+        font-size: 12px;
+        text-align: right;
+        margin-left: auto; /* Ensures date aligns to the right */
+    }
+    
+    .progress-bar-container {
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .percentage {
+        font-size: 13px;
+    }
+    
+    .certifications .h-line{
+        width: 80%; /* Full width of the section */
+        height: 2px; /* Line thickness */
+    }
+    .footer-container {
+        padding-left: 20px;
+        padding-right: 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-left {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .footer-right {
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
